@@ -3,12 +3,12 @@
 
 
 # Include the auxiliary code files.
-include ../Utilities/L2T-Utilities.praat
-include ../StartupForm/L2T-StartupForm.praat
-include ../Audio/L2T-Audio.praat
-include ../WordList/L2T-WordList.praat
+include ../L2T-utilities/L2T-Utilities.praat
+include ../L2T-StartupForm/L2T-StartupForm.praat
+include ../L2T-Audio/L2T-Audio.praat
+include ../L2T-WordList/L2T-WordList.praat
 include ../SegmentationLog/L2T-SegmentationLog.praat
-include ../SegmentationTextGrid/L2T-SegmentationTextGrid.praat
+include ../L2T-SegmentationTextGrid/L2T-SegmentationTextGrid.praat
 
 
 
@@ -48,10 +48,10 @@ procedure current_trial_to_check
 ##      so that the column of the WordList, from which is drawn the label of
 ##      the Word interval, can be set according to the [.experimental_task$].
   # ... Target Word
-  if session_parameters.experimental_task$ == experimental_tasks.rwr$
+  if session_parameters.experimental_task$ == "RealWordRep"
     .target_word$ = Get value... '.row_on_wordlist'
                              ... 'wordlist_columns.word$'
-  elif session_parameters.experimental_task$ == experimental_tasks.nwr$
+  elif session_parameters.experimental_task$ == "NonWordRep"
     .target_word$ = Get value... '.row_on_wordlist'
                              ... 'wordlist_columns.orthography$'
   endif
